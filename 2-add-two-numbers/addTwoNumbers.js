@@ -13,27 +13,24 @@ export const defineList = numbers => {
   return nodes[0];
 };
 
-var addTwoNumbers = function(l1, l2) {
+const addTwoNumbers = function(l1, l2) {
   let sum = 0;
   let carryFlag = false;
   let result = [];
-  let resultNodes = null;
 
   while (l1 || l2) {
     const lv1 = l1 ? l1.val : 0;
     const lv2 = l2 ? l2.val : 0;
     sum = lv1 + lv2 + (carryFlag ? 1 : 0);
-    result.push(sum % 10);
-    carryFlag = sum > 9 ? true : false;
+    carryFlag = sum > 9;
+    result.push(carryFlag ? sum - 10 : sum);
     l1 = l1 ? l1.next : null;
     l2 = l2 ? l2.next : null;
   }
-  if (!carryFlag) {
-    resultNodes = defineList(result);
-  } else {
-    resultNodes = defineList([...result, 1]);
+  if (carryFlag) {
+    result.push(1);
   }
-  return resultNodes;
+  return defineList(result);
 };
 
 export default addTwoNumbers;
