@@ -34,4 +34,11 @@ describe("addTwoNumbers", () => {
     const result = defineList([8, 9, 4, 4]);
     expect(addTwoNumbers(l1, l2)).toEqual(result);
   });
+  it("bug fix, fail case in leetscode", () => {
+    const l1 = defineList([1]);
+    const l2 = defineList([9, 9]);
+
+    const result = defineList([0, 0, 1]);
+    expect(addTwoNumbers(l1, l2)).toEqual(result);
+  });
 });

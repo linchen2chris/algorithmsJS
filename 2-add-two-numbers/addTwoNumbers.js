@@ -22,8 +22,8 @@ var addTwoNumbers = function(l1, l2) {
   while (l1 || l2) {
     const lv1 = l1 ? l1.val : 0;
     const lv2 = l2 ? l2.val : 0;
-    sum = lv1 + lv2;
-    result.push((sum + (carryFlag ? 1 : 0)) % 10);
+    sum = lv1 + lv2 + (carryFlag ? 1 : 0);
+    result.push(sum % 10);
     carryFlag = sum > 9 ? true : false;
     l1 = l1 ? l1.next : null;
     l2 = l2 ? l2.next : null;
