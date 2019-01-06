@@ -27,4 +27,11 @@ describe("addTwoNumbers", () => {
     const result = defineList([8, 9, 3, 4]);
     expect(addTwoNumbers(l1, l2)).toEqual(result);
   });
+  it("should return correct when has carry and l2 is longer", () => {
+    const l1 = defineList([9, 9]);
+    const l2 = defineList([9, 9, 3, 4]);
+
+    const result = defineList([8, 9, 4, 4]);
+    expect(addTwoNumbers(l1, l2)).toEqual(result);
+  });
 });
